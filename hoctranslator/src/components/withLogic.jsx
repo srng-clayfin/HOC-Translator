@@ -7,20 +7,26 @@ export const Logic = (OrigComponent) => {
 
       this.state = {
         count: 0,
+        ip : "",
       };
     }
     
-    incrementCount = (a) => {
+    incrementCount = (ipo,a) => {
+
+      console.log(ipo);
 
       this.setState((prevState) => {
-        if(a)
-        {
-          return { count: prevState.count + 1 };
-        }
-        else
-        {
-          return { count: prevState.count - 1 };      
-        }
+
+        return { ip : ipo };
+
+        // if(a)
+        // {
+        //   return { count: prevState.count + 1 };
+        // }
+        // else
+        // {
+        //   return { count: prevState.count - 1 };      
+        // }
         });
     };
 
@@ -28,7 +34,7 @@ export const Logic = (OrigComponent) => {
     render() {
       return (
         <OrigComponent
-          count={this.state.count}
+          count={this.state.ip}
           incrementCount={this.incrementCount}
         />
       );
