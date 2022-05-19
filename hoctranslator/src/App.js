@@ -1,12 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
-import { Input } from './components/Input';
+import One from './components/One';
+import Two from './components/Two';
 
 function App() {
   return (
     <div className="App">
-      <h3>Srng :)</h3>
-      <Input />
+      <h1>Srng :) </h1>
+      <br />
+      <br />
+      <One />
+      <br />
+      <Two />
     </div>
   );
 }
