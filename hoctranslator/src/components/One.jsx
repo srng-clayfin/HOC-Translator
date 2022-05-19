@@ -7,9 +7,12 @@ class BlurCounter extends React.Component {
     render() {
     return (
       <div>
-        <h1>{this.props.count}</h1>
-        <button onClick={() => this.props.incrementCount(this.a)} >Increment</button>
+      <div className='ip'>
+        <input type={'text'} />
       </div>
+      <br />
+      <button onClick={() => this.props.incrementCount(this.a)}>Hindi</button>
+    </div>
     );
   }
 }
