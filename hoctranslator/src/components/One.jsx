@@ -1,19 +1,31 @@
 import React from 'react';
-
 import {Logic} from './withLogic';
 
-class BlurCounter extends React.Component {
-    a = true;
-    render() {
+class ClickCounter extends React.Component {
+  constructor()
+  {
+    super();
+    this.state = {
+      ip : "",
+    }
+  } 
+
+  
+  a = "hi";
+  
+  render() 
+  {  
+
     return (
       <div>
-      <div className='ip'>
-        <input type={'text'} />
+        <h3>{this.props.count}</h3>
+        <div className='ip'>
+          <input type={'text'} onChange={(e) => this.setState({ ip: e.target.value })} />
+        </div>
+        <br />
+        <button onClick={() => this.props.incrementCount(this.state.ip,this.a)}>Hindi</button>
       </div>
-      <br />
-      <button onClick={() => this.props.incrementCount(this.a)}>Hindi</button>
-    </div>
     );
   }
 }
-export default Logic(BlurCounter);
+export default Logic(ClickCounter);

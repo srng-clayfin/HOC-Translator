@@ -11,7 +11,7 @@ class ClickCounter extends React.Component {
   } 
 
   
-  a = false;
+  a = "fr";
   
   render() 
   {
@@ -19,12 +19,12 @@ class ClickCounter extends React.Component {
 
     return (
       <div>
-        <h1>{this.props.count}</h1>
+        <h3>{this.props.count}</h3>
         <div className='ip'>
           <input type={'text'} onChange={(e) => this.setState({ ip: e.target.value })} />
         </div>
         <br />
-        <button onClick={() => this.props.incrementCount(this.state.ip)}>French</button>
+        <button onClick={() => this.props.incrementCount(this.state.ip,this.a)}>French</button>
       </div>
     );
   }

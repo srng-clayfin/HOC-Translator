@@ -8,33 +8,48 @@ export const Logic = (OrigComponent) => {
       this.state = {
         count: 0,
         ip : "",
+        ans : "",
       };
+    }
+
+
+    translateOup = async (ipo,e) => 
+    {     
+      const res = await fetch("https://libretranslate.de/translate", {
+      method: "POST",
+      body: JSON.stringify({
+          q: ipo,
+          source: "auto",
+          target: e,                    
+      }),
+      headers: { "Content-Type": "application/json" },
+      });
+
+      let data = await res.json();    
+
+      this.setState((prevState) => {
+        return { ans : data.translatedText };      
+      });
     }
     
     incrementCount = (ipo,a) => {
 
-      console.log(ipo);
+      // console.log(a);
 
+      this.translateOup(ipo,a);
+
+      console.log(this.state.ans);
+     
       this.setState((prevState) => {
-
-        return { ip : ipo };
-
-        // if(a)
-        // {
-        //   return { count: prevState.count + 1 };
-        // }
-        // else
-        // {
-        //   return { count: prevState.count - 1 };      
-        // }
-        });
+        return { ip : ipo };      
+      });
     };
 
 
     render() {
       return (
         <OrigComponent
-          count={this.state.ip}
+          count={this.state.ans}
           incrementCount={this.incrementCount}
         />
       );
